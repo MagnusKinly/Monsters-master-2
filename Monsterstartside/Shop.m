@@ -39,7 +39,7 @@
                           
                           initWithTitle:@"" message:@"" delegate:self
                           
-                          cancelButtonTitle:@"" otherButtonTitles:nil];
+                          cancelButtonTitle:@"Tilbage" otherButtonTitles:nil];
     
     [alert addButtonWithTitle:@"Køb"];
     
@@ -57,7 +57,7 @@
                           
                           initWithTitle:@"" message:@"" delegate:self
                           
-                          cancelButtonTitle:@"" otherButtonTitles:nil];
+                          cancelButtonTitle:@"Tilbage" otherButtonTitles:nil];
     
     [alert addButtonWithTitle:@"Køb"];
     
@@ -75,7 +75,7 @@
                           
                           initWithTitle:@"" message:@"" delegate:self
                           
-                          cancelButtonTitle:@"" otherButtonTitles:nil];
+                          cancelButtonTitle:@"Tilbage" otherButtonTitles:nil];
     
     [alert addButtonWithTitle:@"Køb"];
     
@@ -93,7 +93,7 @@
                           
                           initWithTitle:@"" message:@"" delegate:self
                           
-                          cancelButtonTitle:@"" otherButtonTitles:nil];
+                          cancelButtonTitle:@"Tilbage" otherButtonTitles:nil];
     
     [alert addButtonWithTitle:@"Køb"];
     
@@ -111,13 +111,32 @@
                           
                           initWithTitle:@"" message:@"" delegate:self
                           
-                          cancelButtonTitle:@"" otherButtonTitles:nil];
+                          cancelButtonTitle:@"Tilbage" otherButtonTitles:nil];
     
     [alert addButtonWithTitle:@"Køb"];
     
     [alert addButtonWithTitle:@"Tilbage"];
     
     [alert show];
+    
+}
+
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    //HER SKER DER NOGET NÅR MAN TRYKKER
+    
+    if (buttonIndex == 0) {
+    
+        NSLog(@"Tilbage"); 
+    
+    }
+    
+    else {
+    
+    
+    
+    }
     
 }
 

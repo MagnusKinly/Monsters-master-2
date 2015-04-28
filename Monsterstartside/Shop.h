@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface Shop : UIViewController
+@interface Shop : UIViewController <UIAlertViewDelegate>
 
 -(IBAction)købEt;
 -(IBAction)købTo;

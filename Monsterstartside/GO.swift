@@ -14,6 +14,27 @@ class videre: UIViewController {
     var highlighted: Bool = false
     var highlightedButton: UIButton!
     
+    
+    // TING FRA HJEM
+    
+    @IBOutlet weak var lblsaveStarPoints: UILabel!
+    @IBOutlet weak var lblsundhedsPoint: UILabel!
+    
+    
+    var defaults: NSUserDefaults!
+    var userSettings: NSString!
+    var starPoints: Int = 0
+    var oldStarPoints: Int = 30
+    var sundhedsPoint: NSString! = "50 / 100"
+    
+    
+    
+    
+    
+    // SLUT MED TING FRA HJEM
+    
+    
+    
     @IBOutlet var btnRun: UIButton!
     @IBOutlet var btnCycle: UIButton!
     @IBOutlet var btnWalk: UIButton!
@@ -29,6 +50,41 @@ class videre: UIViewController {
         super.viewWillAppear(animated)
         highlightedButton = btnWalk
         highLightButton(btnWalk)
+        
+        // TING FRA HJEM
+        
+        defaults = NSUserDefaults.standardUserDefaults()
+        if let user = defaults.stringForKey("currentUser"){
+            //   userSettings = split(user) {$0 == ":"}
+            
+            if defaults.objectForKey("starPoints") != nil{
+                starPoints = defaults.integerForKey("starPoints")
+            }
+            
+            if defaults.objectForKey("newStarPoints") != nil{
+                
+            }
+            
+            // NSUserDefaults.standardUserDefaults().setObject(starPoints, forKey: "currentuser")
+            // NSUserDefaults.standardUserDefaults().synchronize()
+            
+            
+            
+            
+            
+            lblsaveStarPoints.text = "\(starPoints + oldStarPoints)"
+            
+            
+            lblsundhedsPoint.text = "\(sundhedsPoint)"
+            
+            
+            
+            
+            
+        }
+
+        
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -64,7 +120,7 @@ class videre: UIViewController {
     }
     
     func highLightButton (tmpbtn: UIButton){
-        tmpbtn.layer.shadowColor = UIColor.cyanColor().CGColor
+        tmpbtn.layer.shadowColor = UIColor.whiteColor().CGColor
         tmpbtn.layer.shadowOffset = CGSizeZero
         tmpbtn.layer.shadowRadius = 10.0
         tmpbtn.layer.shadowOpacity = 1.0

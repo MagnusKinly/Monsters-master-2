@@ -14,9 +14,16 @@ class Hjem: UIViewController {
     
 
     var defaults: NSUserDefaults!
-    var userSettings: Array<String>!
+    var userSettings: NSString!
     var starPoints: Int = 0
+    var oldStarPoints: Int = 30
+    var sundhedsPoint: NSString! = "50 / 100"
     
+    
+    
+    
+    
+    @IBOutlet weak var lblsundhedsPoint: UILabel!
     
 
 
@@ -32,18 +39,29 @@ class Hjem: UIViewController {
                 starPoints = defaults.integerForKey("starPoints")
             }
             
+            if defaults.objectForKey("newStarPoints") != nil{
+            
+            }
+            
+           // NSUserDefaults.standardUserDefaults().setObject(starPoints, forKey: "currentuser")
+            // NSUserDefaults.standardUserDefaults().synchronize()
+            
 
 
     
     
-    lblsaveStarPoints.text = "\(starPoints)"
+    lblsaveStarPoints.text = "\(starPoints + oldStarPoints)"
 
+            
+    lblsundhedsPoint.text = "\(sundhedsPoint)"
 
 
 
 
 
         }
+        
+        
     }
 
 

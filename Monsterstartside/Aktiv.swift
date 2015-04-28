@@ -40,6 +40,7 @@ class Aktiv: UIViewController, CLLocationManagerDelegate {
     //var paused = true
     var factor: Double = 0.0
     var starPoints: Int = 0
+    var newStarPoints: Int = 9
     var defaults: NSUserDefaults!
     
     
@@ -47,7 +48,7 @@ class Aktiv: UIViewController, CLLocationManagerDelegate {
     
     let start = UIImage(named: "PAUSEKNAP.png") as UIImage!
     let pause = UIImage(named: "GO6.png") as UIImage!
-    let stop = UIImage(named: "aaaaa.png") as UIImage!
+    let stop = UIImage(named: "stop.png") as UIImage!
 
     
 
@@ -66,7 +67,7 @@ class Aktiv: UIViewController, CLLocationManagerDelegate {
             
             // trackButton.setTitle("Fortsæt", forState: UIControlState.Normal)
             trackButton.setImage(UIImage(named: "GO6"), forState: .Normal);
-            Stop.setImage(UIImage(named: "aaaaa"), forState: .Normal);
+            Stop.setImage(UIImage(named: "stop"), forState: .Normal);
             distanceLabel.text = NSString(format: "%.2f km", totalDistane/1000) as? String
             isUserTracking = false
             elapsedTime = startTimeDate.timeIntervalSinceNow                  // Ny tid
@@ -126,9 +127,19 @@ class Aktiv: UIViewController, CLLocationManagerDelegate {
     
     
     @IBAction func StopPressed(sender: UIButton) {
-        var saveStarPoints = "\(starPoints):"
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(saveStarPoints, forKey: "currentUser")
+        
+        
+        var saveStarPoints:NSString = "\(starPoints + newStarPoints)"
+        
+       
+        
+       // let defaults = NSUserDefaults.standardUserDefaults()
+        NSUserDefaults.standardUserDefaults().setObject(saveStarPoints, forKey: "currentuser")
+        NSUserDefaults.standardUserDefaults().synchronize()
+        
+        
+        
+       // defaults.setObject(saveStarPoints, forKey: "currentUser")
         
         
         
