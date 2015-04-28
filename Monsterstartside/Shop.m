@@ -121,10 +121,12 @@
     
 }
 
+    //HER SKER DER NOGET NÅR MAN TRYKKER
+
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 
-    //HER SKER DER NOGET NÅR MAN TRYKKER
+
     
     if (buttonIndex == 0) {
     

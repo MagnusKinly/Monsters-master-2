@@ -16,8 +16,17 @@ class Hjem: UIViewController {
     var defaults: NSUserDefaults!
     var userSettings: NSString!
     var starPoints: Int = 0
-    var oldStarPoints: Int = 30
-    var sundhedsPoint: NSString! = "50 / 100"
+    var oldStarPoints: Int = 50
+    var saveAddSundhedsPoint: Int = 0
+    var oldSundhedsPoint: Int = 40
+    var Sundhedspoint: Int = 0
+    var Sundhedspoints: Int = 0
+    var bananPris: Int = 10
+    var firstPrice: Int = 0
+    var sundhedspointBanan: Int = 0
+    var secondPrice: Int = 0
+    
+    
     
     
     
@@ -30,39 +39,80 @@ class Hjem: UIViewController {
     @IBOutlet weak var lblsaveStarPoints: UILabel!
     
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+
+    
+    
+    
+    
+    
     override func viewWillAppear(animated: Bool) {
         defaults = NSUserDefaults.standardUserDefaults()
         if let user = defaults.stringForKey("currentUser"){
-         //   userSettings = split(user) {$0 == ":"}
             
-            if defaults.objectForKey("starPoints") != nil{
+            
+            if defaults.objectForKey("Sundhedspoint") != nil{
+                Sundhedspoint = defaults.integerForKey("Sundhedspoint")
+                defaults.synchronize()
+                
+                
+            }
+
+            
+            
+           if  defaults.objectForKey("starPoints") != nil{
                 starPoints = defaults.integerForKey("starPoints")
+            defaults.synchronize()
+                
             }
             
-            if defaults.objectForKey("newStarPoints") != nil{
-            
+            if defaults.objectForKey("firstPrice") != nil{
+                firstPrice = defaults.integerForKey("firstPrice")
+                defaults.synchronize()
+                
             }
             
-           // NSUserDefaults.standardUserDefaults().setObject(starPoints, forKey: "currentuser")
-            // NSUserDefaults.standardUserDefaults().synchronize()
+            if defaults.objectForKey("sundhedspointBanan") != nil{
+                sundhedspointBanan = defaults.integerForKey("sundhedspointBanan")
+                defaults.synchronize()
+
+            }
+            
+            if defaults.objectForKey("secondPrice") != nil{
+                secondPrice = defaults.integerForKey("secondPrice")
+                defaults.synchronize()
+                
+            }
+
+            
+            
+            
+            
+        
+                
+}
+            
             
 
-
+   
+    lblsaveStarPoints.text = "\( oldStarPoints + (starPoints) - ((firstPrice) + (secondPrice)))"
     
-    
-    lblsaveStarPoints.text = "\(starPoints + oldStarPoints)"
 
             
-    lblsundhedsPoint.text = "\(sundhedsPoint)"
+    lblsundhedsPoint.text = "\(oldSundhedsPoint + (sundhedspointBanan) + (Sundhedspoint))"
 
 
 
 
 
-        }
-        
-        
     }
 
 
-}
+    
+    }
+

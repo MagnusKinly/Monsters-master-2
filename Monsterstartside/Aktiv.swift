@@ -129,11 +129,13 @@ class Aktiv: UIViewController, CLLocationManagerDelegate {
     @IBAction func StopPressed(sender: UIButton) {
         
         
-        var saveStarPoints:NSString = "\(starPoints + newStarPoints)"
+        var saveStarPoints:NSString = "\(starPoints)" //+ newStarPoints)"
         
        
         
        // let defaults = NSUserDefaults.standardUserDefaults()
+        
+        
         NSUserDefaults.standardUserDefaults().setObject(saveStarPoints, forKey: "currentuser")
         NSUserDefaults.standardUserDefaults().synchronize()
         

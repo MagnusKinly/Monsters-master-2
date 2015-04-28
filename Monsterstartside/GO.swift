@@ -53,6 +53,8 @@ class videre: UIViewController {
         
         // TING FRA HJEM
         
+        
+        
         defaults = NSUserDefaults.standardUserDefaults()
         if let user = defaults.stringForKey("currentUser"){
             //   userSettings = split(user) {$0 == ":"}
